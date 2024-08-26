@@ -1,0 +1,47 @@
+nav {
+    color: rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 49;
+    background:  #F8F9FA;
+    @apply flex  flex-col lg:flex-row
+}
+/* .noScrole{
+
+    transition: all 0.4s;
+    @apply lg:h-24
+}
+.scrole{
+    transition: all 0.4s;
+    @apply md:h-20
+} */
+nav ul {
+    @apply lg:flex lg:flex-wrap lg:justify-center lg:items-center lg:text-center
+}
+
+nav ul li {
+    @apply m-5
+}
+
+.active {
+
+    color: rgb(0, 0, 0);
+
+}
+
+nav .menu {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.25rem;
+    height: 2rem;
+}
+
+nav .menu span {
+    height: 0.4rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.2rem;
+}
