@@ -14,12 +14,12 @@ const [isVisible, setIsVisible] = useState(true);
  
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 3000); 
+    },3000); 
 
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className=' container1'>
+    <div className=' '>
 
 {isVisible ? <div>  <Lodar/>  </div>
 :

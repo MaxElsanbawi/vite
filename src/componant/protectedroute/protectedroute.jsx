@@ -7,11 +7,6 @@ import Login from '../login/login'
  function ProtectedRoute(props) {
 
 
-
-
-
-
-
 if (localStorage.getItem("token")){
   return props.children  
 } 

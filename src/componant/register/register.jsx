@@ -31,42 +31,42 @@ let navigate= useNavigate();
     },[]);
 
 
-function validateAllInput(values){
-  console.log(values)
-  let errors = {};
-
-  let nameRegex = /^[A-Z][a-z]{3,9}$/;
-  let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  let emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-  let phoneRegex = /^01[0-2,5]{1}[0-9]{8}$/;
-
-  if (values.name ===""){
-    errors.name="name is required"
-  } else if (!nameRegex.test(values.name)){
-    errors.name="name should not contain special characters"
-  }
-  if(values.email===""){
-    errors.email="email is required"
-  }else if(!emailRegex.test(formik.values.email)){
-    errors.email="Invalid email format"
-  }
-  if(values.password===""){
-    errors.password="password is required"
-  }else if(!passwordRegex.test(values.password)){
-    errors.password="password should be at least 8 characters long (A) &(numbers) &(a) &(#,&,%)"
-  }
-  if(values.rePassword===""){
-    errors.rePassword="re-password is required"
-  }else if(values.rePassword!==values.password){
-    errors.rePassword="re-password is not a valid password";
-}
-  if(values.phone===""){
-    errors.phone="phone is required"
-  }else if(!phoneRegex.test(values.phone)){
-    errors.phone="phone is not a valid password";
-}  
-return errors
-}
+    function validateAllInput(values){
+      console.log(values)
+      let errors = {};
+    
+      let nameRegex = /^[A-Z][a-z]{3,9}$/;
+      let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      let emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+      let phoneRegex = /^01[0-2,5]{1}[0-9]{8}$/;
+    
+      if (values.name ===""){
+        errors.name="name is required"
+      } else if (!nameRegex.test(values.name)){
+        errors.name="name should not contain special characters"
+      }
+      if(values.email===""){
+        errors.email="email is required"
+      }else if(!emailRegex.test(formik.values.email)){
+        errors.email="Invalid email format"
+      }
+      if(values.password===""){
+        errors.password="password is required"
+      }else if(!passwordRegex.test(values.password)){
+        errors.password="password should be at least 8 characters long (A) &(numbers) &(a) &(#,&,%)"
+      }
+      if(values.rePassword===""){
+        errors.rePassword="re-password is required"
+      }else if(values.rePassword!==values.password){
+        errors.rePassword="re-password is not a valid password";
+    }
+      if(values.phone===""){
+        errors.phone="phone is required"
+      }else if(!phoneRegex.test(values.phone)){
+        errors.phone="phone is not a valid password";
+    }  
+    return errors
+    }
 let formik=  useFormik({
 initialValues:{
     name:'',

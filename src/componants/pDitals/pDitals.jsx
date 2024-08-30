@@ -1,8 +1,10 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Lodar from '../lodar/lodar'
 import Slider from 'react-slick'
+import { cartContext } from '../../Context/cartContext/cartContext'
+import toast from 'react-hot-toast'
 
 export default function PDitals() {
 const [det, setDet] = useState({})
@@ -31,19 +33,32 @@ useEffect(() =>{
 
 useEffect(() => {
   getD();
-}, []);console.log(id)
+}, []);
+console.log(id)
 
 const [isVisible, setIsVisible] = useState(true);
 
 useEffect(() => {
   const timer = setTimeout(() => {
     setIsVisible(false);
-  },3000); 
+  } ,  3000   ); 
 
   return () => clearTimeout(timer);
 }, []);
 
+const { addToCart} =useContext (cartContext)
+const {setNoumber} = useContext (cartContext)
 
+
+async function addtoCartBtn(id) {
+let{data} = await addToCart(id);
+toast.success(data.message ,{
+  position:"top-right" ,
+  style: {background:"#008000"},
+});
+setNoumber(data.numOfCartItems)
+}
+console.log(det.id)
   return (
 
 <div>
@@ -52,19 +67,13 @@ useEffect(() => {
       <div className='container12 '>
       
       <div className="row1 lg:flex-row md:flex-col">
-      <div className=' lg:w-1/4 bg-red-600'>fffffffff
+      <div className=' lg:w-1/4 w-full'>
       
       <Slider {...settings}>
-
-        {det?.images?.map((image)=> (
-<div key={det.image} >  <img src={image} alt="" /> </div>
-
-        )) };
-
-  
-
-    </Slider>
-          
+                  {det.images?.map((image, index) => (
+                    <img key={index} src={image} alt={`Slide ${index}`} />
+                  ))}
+                </Slider>
       </div>
       <div className='lg:w-3/4 md:w-auto p-3'>
       <h1 className=' text-2xl'>
@@ -77,7 +86,7 @@ useEffect(() => {
         <strong> ${ det.price }  </strong>
         <p><i className="fa-solid fa-star text-yellow-500"></i>  { det.ratingsAverage }  </p>
       </div>
-      <div>  <button type="submit" id='submit'    className="focus:outline-none text-white ps-60 pe-60 mt-6  bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-500 dark:focus:ring-green-500"> + add</button> </div>
+      <div>  <button type="submit" id='submit'  onClick={() => addtoCartBtn(det.id)}   className="focus:outline-none text-white w-full bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-500 dark:focus:ring-green-500"> + add</button> </div>
       </div>
       </div>
     </div>

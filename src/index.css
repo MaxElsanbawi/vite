@@ -37,15 +37,32 @@ body{
 }
 .fr{
   float: right;
+
+}
+.none{
+  display: none;
+}
+
+
+.prodact .btn {
+  transition: transform 1s , opacity 1s;
+  transform: translateY(300%);
+  opacity: 0;
+z-index: 55555555555;
+}
+
+.prodact:hover .btn {
+  opacity: 1;
+  transform: translateY(-80%);
+
 }
 
 
 
 
-
-
-
-
+.ero{
+  background-color: white;
+}
 
 
 

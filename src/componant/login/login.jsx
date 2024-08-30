@@ -1,10 +1,10 @@
 import{ useContext, useEffect, useState } from 'react'
 import { useFormik } from 'formik';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { acountContext } from '../../Context/AcountContext';
 import Lodar from '../../componants/lodar/lodar';
-import ForgotPassword from '../../componants/forgetPassword/forgetPassword';
+
 
 
 
@@ -104,17 +104,13 @@ useEffect(() => {
 <div>
     { isVisible?   <Lodar/>  :  
 
-<section className=" textc pb-2">
+<section className=" textc pb-2 container1">
             <div>
-                <h1 className=' flex flex-wrap justify-center font-bold text-5xl pt-5'>
+                <h1 className=' flex flex-wrap  font-bold text-5xl pt-5 ps-48'>
                     login 
                 </h1>
             </div>
-            <div className=' flex flex-wrap justify-center p-5 '><div className="b-r1  m-3"></div>
-                <div>
-                    <i className="fa-solid fa-star"></i>
-                </div><div className="b-r1  m-3"></div>
-            </div>
+            
 
 <form  onSubmit={formik.handleSubmit}>
             <div className="container1">
@@ -142,12 +138,16 @@ useEffect(() => {
                         {error ? <div className='bg-red-500 ps-3 mb-5 rounded text-black m-auto'>{error}</div> : null}
                         <div>
                           
-                        <button type="submit" id='submit'    className="focus:outline-none text-white  bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-500 dark:focus:ring-green-500">login</button>
+                        <button   type="submit" id='submit'    className="focus:outline-none text-white  bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-500 dark:hover:bg-green-500 dark:focus:ring-green-500">login</button>
                         </div>
-                        <ForgotPassword/>
+                        
                     </div>
                 </div>
+                <Link className='ms-40   hover:text-green-500' to="/forget">
+            forget your password ?
+            </Link>
             </div></form>
+            
         </section>
 
  }

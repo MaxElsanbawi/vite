@@ -23,7 +23,7 @@ export default function Slider2() {
     <>
     <div className="container1 pb-32 ">
     <div className="inear ">
-      <div className=" flex flex-row" >
+      <div className=" flex lg:flex-row flex-col" >
       <div  className='container12  ' >
        <Slider {...settings}  className=' w-1/2 ms-40'><div className=' '>
       

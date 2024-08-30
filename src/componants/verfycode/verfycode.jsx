@@ -35,12 +35,14 @@ let navigate =  useNavigate( )
   })
 
   return (
-    <div>
-      <form onSubmit={vrifyCode.handleSubmit}>
-        <label htmlFor="resetCode">  restcode </label>
-        <input type="text" id='resetCode' name='resetCode' value={vrifyCode.value} onChange={vrifyCode.handleChange} onBlur={vrifyCode.handleBlur} />
-        <button type='submit'>Send code</button>
+    <div className='container1 pt-10'>
+   <div className='pt-10'>
+   <form onSubmit={vrifyCode.handleSubmit}>
+      <label htmlFor="resetCode" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-green-500 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"></label>
+      <input value={vrifyCode.value} type="resetCode" id="resetCode" className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" name="resetCode" placeholder="Verification" onChange={vrifyCode.handleChange} onBlur={vrifyCode.handleBlur} />
+        <button className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type='submit'>Send code</button>
       </form> {vrifyCode.errors.resetCode && <p> {vrifyCode.errors.resetCode} </p>}
-    </div>
+   </div>
+    </div> 
   )
 }
